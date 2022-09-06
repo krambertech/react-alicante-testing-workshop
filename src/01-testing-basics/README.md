@@ -140,11 +140,11 @@ As we just covered the basics of testing, you have a task of writing your own se
 
 ### Exercise 1.1
 
-// TODO
+You need to cover with tests function that multiples 2 numbers. Head to `/exercises` and open `01.multiple.test.js`. I have prepared test cases for you, you just need to fill them with checks.
 
 ### Exercise 1.2
 
-// TODO
+You need to cover with tests function that transforms strings to camelCase. Head to `/exercises` and open `02.toCamelCase.test.js`. In this case you need to write your own test cases
 
 ## 💡 Quiz
 
@@ -152,8 +152,8 @@ As we just covered the basics of testing, you have a task of writing your own se
 
 ## 📚 Materials
 
-- [Jest Documentation](https://jestjs.io/docs/getting-started)
-- [Jest's `expect`](https://jestjs.io/docs/expect)
+- [Jest's documentation](https://jestjs.io/docs/getting-started)
+- [Jest's `expect` docs](https://jestjs.io/docs/expect)
 
 ## 👉 Next
 
