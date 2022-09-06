@@ -136,6 +136,15 @@ Just comes with its own assertion library ([Jest Matchers](https://jestjs.io/doc
 
 ## 👩‍💻 Exercises
 
+As we just covered the basics of testing, you have a task of writing your own set of tests and several modules.
+
+### Exercise 1.1
+
+// TODO
+
+### Exercise 1.2
+
+// TODO
 
 ## 💡 Quiz
 

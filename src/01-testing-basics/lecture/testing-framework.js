@@ -1,3 +1,6 @@
+// This out little implementation of testing framework,
+// which we wrote for understanding how it works
+
 const expect = (result) => ({
   toBe(expected) {
     if (result !== expected) {
