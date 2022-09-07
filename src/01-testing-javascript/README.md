@@ -105,6 +105,7 @@ Running this file will produce this output:
 
 <details>
   <summary>Output</summary>
+  
   ```
   ✅ sums 2 numbers
   ✅ sums 3 numbers
@@ -124,6 +125,7 @@ Which will produce this beautiful report in the console:
 
 <details>
   <summary>Output</summary>
+
   ```
   PASS  src/00-vanilla-test/sum.test.js
     ✓ sums 2 numbers (1 ms)
