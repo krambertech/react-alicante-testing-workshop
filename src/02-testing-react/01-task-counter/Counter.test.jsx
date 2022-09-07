@@ -5,17 +5,17 @@
 // 🎁 BONUS TASK: add a set of tests for when props get changed
 //
 // Run your tests with:
-//   npm test multiply
+//   npm test Counter
 
 import Counter from "./Counter";
 import { render, screen } from "@testing-library/react";
 
 test("your test", () => {
-   // 👉 Implement me!
+  // 👉 Implement me!
 });
 
-  // 💡 TIPS:
-  // To test rerender, use rerender method from react-testing-library
-  // https://testing-library.com/docs/react-testing-library/api/#rerender
-  //
-  // Good luck! 🍀
+// 💡 TIPS:
+// To test rerender, use `rerender` method from react-testing-library
+// https://testing-library.com/docs/react-testing-library/api/#rerender
+//
+// Good luck! 🍀

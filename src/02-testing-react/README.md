@@ -32,7 +32,7 @@
 
 ## 📚 Materials
 
-- 
+- [Queries in testing library](https://testing-library.com/docs/queries/about/)
 
 ## 👉 Next
 
