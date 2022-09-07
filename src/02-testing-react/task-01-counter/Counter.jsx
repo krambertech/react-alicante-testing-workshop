@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Counter({ min = 0, max = 10 }) {
+export default function Counter({ min = 0, max = 10 }) {
   const [count, setCount] = useState(min);
 
   const handleIncrement = () => {
@@ -32,5 +32,3 @@ function Counter({ min = 0, max = 10 }) {
     </div>
   );
 }
-
-export default Counter;

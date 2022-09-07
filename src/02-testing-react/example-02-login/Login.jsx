@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { logIn } from "./api";
 
-function Login() {
+export default function Login() {
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("none");
 
@@ -59,5 +59,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
