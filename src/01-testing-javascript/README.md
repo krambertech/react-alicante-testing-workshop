@@ -1,13 +1,13 @@
-# Step 1 - Testing JavaScript
-
-Imagine building a house, you create blueprint and build it. After it is done, you rarely make changes to the core construction. Software os different, it is dymanic -- we make changes to it over time. Different types of software testing can help us to ensure that the result meets requirements and continues meeting them as we make changes to it.
+# Module 1 - Testing JavaScript
 
 Here we explore how testing works, build a small testing framework and learn to use Jest to test JavaScript.
+
+Let's go! 🚀
 
 
 ## 🐇 Jump around
 
-[Summary](#-summary) | [Notes](#-notes) | [Exercises](#-exercises) | [Quiz](#-quiz) | [Resources](#-materials) | [Next](#-next)
+[Summary](#-summary) | [Notes](#-notes) | [Tasks](#-tasks) | [Quiz](#-quiz) | [Resources](#-materials) | [Next](#-next)
 
 
 ## ✨ Summary
@@ -20,7 +20,9 @@ Here we explore how testing works, build a small testing framework and learn to 
 
 ## 📝 Notes
 
-Here we will understand how testing in general works and implement our own version of testing framework (very simplified, of course)
+### Part 1: What is testing
+
+Imagine building a house, you create blueprint and build it. After it is done, you rarely make changes to the core construction. Software os different, it is dymanic -- we make changes to it over time. Different types of software testing can help us to ensure that the result meets requirements and continues meeting them as we make changes to it. 
 
 To start with, have this implementation of `sum` function that sums all numbers passed to it.
 
@@ -134,27 +136,121 @@ Time:        0.56 s, estimated 1 s
 
 Just comes with its own assertion library ([Jest Matchers](https://jestjs.io/docs/expect)) and a bunch of other features which we explore as we go further.
 
-## 👩‍💻 Exercises
+**👉 👉 👉 Task 1.1**
+
+### Part 2: Introducing TDD
+
+So far we wrote all tests for the code that is already written to create a safetynet for us when we make changes. But what if we write tests first?
+
+This approach is called TDD - Test Driven Development, it's when tests drive your development.
+
+Let's take a simple case, we want to write `pluralize` function that will return return strings with plural or single form based on the number.
+
+Let's create a boilerplate for a future function:
+
+```js
+function pluralize() {
+  return '';
+}
+```
+
+Now, let's write some tests to cover main cases:
+
+```js
+test("returns sigular form for count 1", () => {
+  expect(pluralize(1, "cat", "cats")).toBe("1 cat");
+  expect(pluralize(1, "dog", "dogs")).toBe("1 dog");
+});
+
+test("returns plural form for count > 1 & 0", () => {
+  expect(pluralize(2, "cat", "cats")).toBe("2 cats");
+  expect(pluralize(5, "dog", "dogs")).toBe("5 dogs");
+  expect(pluralize(8, "sheep", "sheep")).toBe("8 sheep");
+});
+```
+
+If we run our tests `npm test pluralize` we see that they are red 🛑. Let's go ahead and implement our function to make the tests green:
+
+```js
+function pluralize(count, singularWord, pluralWord) {
+    if (count === 1) {
+        return `${count} ${singularWord}`;
+    }
+    return `${count} ${pluralWord}`;
+}
+```
+
+Now tests are green 🟢, but we see that in most of the cases plural form could be generalted based on singular form by adding `s`. Would be cool for our function to handle it. 
+
+Let's write a test for it:
+
+```js
+test("generates plural form based on singular", () => {
+  expect(pluralize(2, "cat")).toBe("2 cats");
+  expect(pluralize(5, "dog")).toBe("5 dogs");
+  expect(pluralize(0, "chair")).toBe("0 chairs");
+});
+```
+
+Tests red again 🛑, let's go ahead and modify our function:
+
+```js
+function pluralize(count, singularWord, pluralWord = = `${singularWord}s`) { ... }
+```
+
+That did the trick, tests are green again 🟢, yay! But what if invalid imput will be passed to our function. Let's test it!
+
+```js
+test("throws error if count is not a number", () => {
+  expect(() => {
+    pluralize("2", "cat", "cats");
+  }).toThrow("Invalid input: count needs to be a number");
+  expect(() => {
+    pluralize(null, "cat", "cats");
+  }).toThrow("Invalid input: count needs to be a number");
+  expect(() => {
+    pluralize({}, "cat", "cats");
+  }).toThrow("Invalid input: count needs to be a number");
+});
+```
+
+Red tests again 🛑, let's handle this case and throw and error in our code:
+
+```js
+if (typeof count !== "number") {
+  throw new Error("Invalid input: count needs to be a number");
+}  
+```
+
+Awesome, all green! This how your workflow with TDD could look like ✨
+
+**👉 👉 👉 Task 1.2**
+
+## 👩‍💻 Tasks
 
 As we just covered the basics of testing, you have a task of writing your own set of tests and several modules.
 
-### Exercise 1.1
+### Task 1.1: Cover `multiply` function with tests
 
-You need to cover with tests function that multiples 2 numbers. Head to `/exercises` and open `01.multiple.test.js`. I have prepared test cases for you, you just need to fill them with checks.
+You need to cover with tests function that multiples 2 numbers. Head to `/task-01-multiply` and open `multiply.test.js`. I have prepared test cases for you, you just need to fill them with checks.
 
-### Exercise 1.2
+### Task 1.2: TDD
 
-You need to cover with tests function that transforms strings to camelCase. Head to `/exercises` and open `02.toCamelCase.test.js`. In this case you need to write your own test cases
+// TODO: add
+
+### Task 1.3 (🎁 BONUS): Cover `toCamelCase` function with tests
+
+You need to cover with tests function that transforms strings to camelCase. It uses regular expressions, which can be hard to wrap your mind around, that's why wring tests for it is important.
+
+`/task-03-camel-case` and open `camelCase.test.js`
 
 ## 💡 Quiz
 
-// TODO: Add quiz
+// TODO: add quiz
 
 ## 📚 Materials
 
 - [Jest's documentation](https://jestjs.io/docs/getting-started)
 - [Jest's `expect` docs](https://jestjs.io/docs/expect)
 
-## 👉 Next
-
-// TODO: add "next"
+## [👉 Next](https://github.com/krambertech/react-testing-workshop/tree/main/src/02-testing-react)

@@ -11,11 +11,11 @@ import multiply from "./multiply";
 
 // Check that it can correctly multiply positive numbers
 // 💡 Tip: make sure you cover different cases within this test
-test.todo("mulptiples positive numbers");
+test.todo("mulptiplies positive numbers");
 
 // Check that it can correctly multiply positive numbers
 // 💡 Tip: make sure you cover different combinations of positive and negative numbers
-test.todo("mulptiples negative numbers");
+test.todo("mulptiplies negative numbers");
 
 // Here we need to test how `multiply` handles invalid input, e.g. strings
 // 💡 Tip: to test that operation throws an error use https://jestjs.io/docs/expect#tothrowerror
