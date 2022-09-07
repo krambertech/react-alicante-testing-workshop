@@ -2,11 +2,21 @@
 
 Here we explore how testing works, build a small testing framework and learn to use Jest to test JavaScript.
 
-Let's go! 🚀
+**Let's go! 🚀**
 
-## 🐇 Jump around
+## 🐇 Jump around <!-- omit in toc -->
 
-[Summary](#-summary) | [Notes](#-notes) | [Tasks](#-tasks) | [Quiz](#-quiz) | [Resources](#-materials) | [Next](#-next)
+- [✨ Summary](#-summary)
+- [📝 Notes](#-notes)
+  - [Part 1: What is testing](#part-1-what-is-testing)
+  - [Part 2: Introducing TDD](#part-2-introducing-tdd)
+- [👩‍💻 Tasks](#-tasks)
+  - [Task 1.1: Cover `multiply` function with tests](#task-11-cover-multiply-function-with-tests)
+  - [Task 1.2: TDD](#task-12-tdd)
+  - [Task 1.3 (🎁 BONUS): Cover `toCamelCase` function with tests](#task-13--bonus-cover-tocamelcase-function-with-tests)
+- [💡 Quiz](#-quiz)
+- [📚 Materials](#-materials)
+- [👉 Next](#-next)
 
 ## ✨ Summary
 

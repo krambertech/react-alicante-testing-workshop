@@ -2,9 +2,17 @@
 
 We just covered testing JavaScript code and now it is time to talk more on how to test React applications.
 
-## 🐇 Jump around
+## 🐇 Jump around <!-- omit in toc -->
 
-[Summary](#-summary) | [Notes](#-notes) | [Exercises](#-exercises) | [Quiz](#-quiz) | [Resources](#-materials) | [Next](#-next)
+- [✨ Summary](#-summary)
+- [📝 Notes](#-notes)
+  - [Part 1](#part-1)
+- [👩‍💻 Tasks](#-tasks)
+  - [Task 1](#task-1)
+  - [Task 2](#task-2)
+- [💡 Quiz](#-quiz)
+- [📚 Materials](#-materials)
+- [👉 Next](#-next)
 
 
 ## ✨ Summary
@@ -16,6 +24,8 @@ We just covered testing JavaScript code and now it is time to talk more on how t
 
 
 ## 📝 Notes
+
+### Part 1
 
 
 
