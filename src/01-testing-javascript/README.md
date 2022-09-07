@@ -105,7 +105,7 @@ Running this file will produce this output:
 
 <details>
   <summary>Output</summary>
-  
+
   ```
   ✅ sums 2 numbers
   ✅ sums 3 numbers
@@ -244,6 +244,8 @@ You need to cover with tests function that multiples 2 numbers. Head to `/task-0
 // TODO: add
 
 ### Task 1.3 (🎁 BONUS): Cover `toCamelCase` function with tests
+
+ℹ️ *Bonus tasks can be completed if you finished early with main tasks or at home*
 
 You need to cover with tests function that transforms strings to camelCase. It uses regular expressions, which can be hard to wrap your mind around, that's why wring tests for it is important.
 
