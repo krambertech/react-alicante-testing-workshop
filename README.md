@@ -1,32 +1,32 @@
-# Testimg React Aplications
+# Testing React Aplications
 
 This a workshop that covers the basics of testing React apps.
 
 ## Setup
 
-Ideally, before the workshop:
+I recommend setup this project in before the workshop. Just follow these instructions:
 
-1. clone this repo on your machine
+1. Clone this repo on your machine
 
 ```sh
-// GitHub CLI
+# GitHub CLI
 gh repo clone krambertech/react-testing-workshop
 
-// SSH
+# SSH
 git clone git@github.com:krambertech/react-testing-workshop.git
 
-// HTTPS
+# HTTPS
 git clone https://github.com/krambertech/react-testing-workshop.git
 ```
 
-2. install dependencies
+2. Install dependencies
 
 ```sh
 cd react-testing-workshop
 npm install
 ```
 
-3. start dev server to check that everything works
+3. Start dev server to check that everything works
 
 ```sh
 npm start
@@ -34,4 +34,5 @@ npm start
 
 ## How this project is organised
 
+// TODO
 
