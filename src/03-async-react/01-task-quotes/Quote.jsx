@@ -2,7 +2,7 @@ import { useState } from "react";
 import { fetchRandomQuote } from "./api";
 
 const categories = [
-  "all",
+  "any",
   "famous-quotes",
   "history",
   "technology",
@@ -28,14 +28,15 @@ function Quote() {
 
   return (
     <div>
+      <h3>Random quote</h3>
+
       <form onSubmit={handleSubmit}>
-        <label htmlFor="quoteCategory">Cat says</label>
+        <label htmlFor="quoteCategory">Choose category</label>
         <select
           id="quoteCategory"
           value={quoteCategory}
           onChange={handleQuoteCategory}
         >
-          <option value="all">all categories</option>
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}
@@ -45,7 +46,12 @@ function Quote() {
         <button type="submit">✨ Generate a random quote</button>
       </form>
 
-      {quote ? <q>{quote.content}</q> : null}
+      {quote && (
+        <div>
+          <blockquote>{quote.content}</blockquote>
+          <cite>(c) by {quote.author}</cite>
+        </div>
+      )}
     </div>
   );
 }

@@ -25,15 +25,16 @@ function Welcome() {
 
   return (
     <div>
+      <h3>Welcome!</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
-        <input id="name" value={name} onChange={handleChange} />
+        <input id="name" value={name} placeholder="Enter a name" onChange={handleChange} />
         <button type="submit" disabled={!name}>
           Greet me!
         </button>
       </form>
 
-      {displayName ? <h2>✨ Hello, {displayName}! ✨</h2> : null}
+      {displayName ? <h3>✨ Hello, {displayName}! ✨</h3> : null}
       {warning ? <p role="alert">{warning}</p> : null}
     </div>
   );

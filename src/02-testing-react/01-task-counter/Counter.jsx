@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-function Counter({ min = 0, max = 10}) {
+function Counter({ min = 0, max = 10 }) {
   const [count, setCount] = useState(min);
 
   const handleIncrement = () => {
@@ -13,9 +13,22 @@ function Counter({ min = 0, max = 10}) {
 
   return (
     <div>
-      <button aria-label="decrement" onClick={handleDecrement} disabled={count <= min}>-</button>
+      <h3>Counter</h3>
+      <button
+        aria-label="decrement"
+        onClick={handleDecrement}
+        disabled={count <= min}
+      >
+        -
+      </button>
       <span>Count: {count}</span>
-      <button aria-label="increment" onClick={handleIncrement} disabled={count >= max}>+</button>
+      <button
+        aria-label="increment"
+        onClick={handleIncrement}
+        disabled={count >= max}
+      >
+        +
+      </button>
     </div>
   );
 }

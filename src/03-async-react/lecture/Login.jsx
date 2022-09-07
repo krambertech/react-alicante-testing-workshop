@@ -9,6 +9,10 @@ function Login() {
     setPassword(e.target.value);
   };
 
+  const handleLogOut = () => {
+    setStatus("none");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -26,8 +30,14 @@ function Login() {
 
   return (
     <div>
+        <h3>Log in</h3>
       {status === "success" ? (
-        <h1>✨ Welcome! You are logged in! ✨</h1>
+        <div>
+          <h1>✨ Welcome! You are logged in! ✨</h1>
+          <button type="button" onClick={handleLogOut}>
+            🔒 Log out
+          </button>
+        </div>
       ) : (
         <form onSubmit={handleSubmit}>
           <label htmlFor="password">Password</label>

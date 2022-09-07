@@ -9,13 +9,14 @@ function WordChecker({ minLength = 3, maxLength = 7 }) {
 
   return (
     <div>
+      <h3>Check the word</h3>
       <label htmlFor="word">Enter a word</label>
       <input id="word" value={word} onChange={handleChange} />
       {word.length <= maxLength && word.length >= minLength ? (
-        <p role="status">Good word!</p>
+        <p role="status">👌 Good word!</p>
       ) : (
         <p role="alert">
-          Bad word!
+          🚫 Bad word!
         </p>
       )}
     </div>
