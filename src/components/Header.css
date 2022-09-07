@@ -1,0 +1,13 @@
+.Header {
+    width: 100%;
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #F0FFFA;
+}
+
+.Header h1 {
+    font-size: 24px;
+    margin: 0;
+}
