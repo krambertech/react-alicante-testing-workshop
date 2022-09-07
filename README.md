@@ -4,7 +4,7 @@ This a workshop that covers the basics of testing React apps. The workshop is in
 
 1. Fundamentals of testing and testing JavaScript
 2. Testing React components
-3. Applying everything we learned test React application
+3. Applying everything we learned to test React application
 
 ## 🌱 Setup
 
