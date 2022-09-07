@@ -26,6 +26,7 @@ function Welcome() {
   return (
     <div>
       <h3>Welcome!</h3>
+      
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input id="name" value={name} placeholder="Enter a name" onChange={handleChange} />
