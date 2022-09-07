@@ -9,31 +9,16 @@
 
 import multiply from "./multiply";
 
-test("mulptiples positive numbers", () => {
-  // Check that it can correctly multiply positive numbers
-  // 💡 Tip: make sure you cover different cases within this test
+// Check that it can correctly multiply positive numbers
+// 💡 Tip: make sure you cover different cases within this test
+test.todo("mulptiples positive numbers");
 
-  expect(multiply(2, 3)).toBe(6);
+// Check that it can correctly multiply positive numbers
+// 💡 Tip: make sure you cover different combinations of positive and negative numbers
+test.todo("mulptiples negative numbers");
 
-  // 👉 Implement me!
-});
+// Here we need to test how `multiply` handles invalid input, e.g. strings
+// 💡 Tip: to test that operation throws an error use https://jestjs.io/docs/expect#tothrowerror
+test.todo("throws error when input is invalid");
 
-test("mulptiples negative numbers", () => {
-  // Check that it can correctly multiply positive numbers
-  // 💡 Tip: make sure you cover different combinations of positive and negative numbers
-
-  // 👉 Implement me!
-});
-
-test("throws error when input is invalid", () => {
-  // Here we need to test how `multiply` handles invalid input, e.g. strings
-  // 💡 Tip: make sure you cover different combinations of positive and negative numbers
-
-  // 👉 Implement me!
-});
-
-// 💡 TIP:
-// How to test that operation throws an error:
-// https://jestjs.io/docs/expect#tothrowerror
-//
 // Good luck 🍀

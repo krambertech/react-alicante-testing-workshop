@@ -10,9 +10,7 @@
 import Counter from "./Counter";
 import { render, screen } from "@testing-library/react";
 
-test("your test", () => {
-  // 👉 Implement me!
-});
+test.todo("your test");
 
 // 💡 TIPS:
 // To test rerender, use `rerender` method from react-testing-library

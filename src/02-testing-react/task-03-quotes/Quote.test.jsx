@@ -8,11 +8,7 @@
 import { render } from "@testing-library/react";
 import Quote from "./Quote";
 
-test("your first test", () => {
-  render(<Quote />);
-  
-  // 👉 Implement me!
-});
+test.todo("your test");
 
 // 💡 TIPS:
 //

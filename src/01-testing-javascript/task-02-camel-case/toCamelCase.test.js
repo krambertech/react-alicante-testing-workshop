@@ -8,8 +8,6 @@
 
 import toCamelCase from "./toCamelCase";
 
-test("your test", () => {
-  // 👉 Implement me!
-});
+test.todo("your test");
 
 // Good luck 🍀
