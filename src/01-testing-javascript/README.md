@@ -4,11 +4,9 @@ Here we explore how testing works, build a small testing framework and learn to 
 
 Let's go! 🚀
 
-
 ## 🐇 Jump around
 
 [Summary](#-summary) | [Notes](#-notes) | [Tasks](#-tasks) | [Quiz](#-quiz) | [Resources](#-materials) | [Next](#-next)
-
 
 ## ✨ Summary
 
@@ -17,12 +15,11 @@ Let's go! 🚀
 - Setting up Jest
 - Using Jest to test JavaScript code
 
-
 ## 📝 Notes
 
 ### Part 1: What is testing
 
-Imagine building a house, you create blueprint and build it. After it is done, you rarely make changes to the core construction. Software os different, it is dymanic -- we make changes to it over time. Different types of software testing can help us to ensure that the result meets requirements and continues meeting them as we make changes to it. 
+Imagine building a house, you create blueprint and build it. After it is done, you rarely make changes to the core construction. Software os different, it is dymanic -- we make changes to it over time. Different types of software testing can help us to ensure that the result meets requirements and continues meeting them as we make changes to it.
 
 To start with, have this implementation of `sum` function that sums all numbers passed to it.
 
@@ -65,7 +62,7 @@ const expect = (result) => ({
 });
 ```
 
-*✨ This is called assertion*
+_✨ This is called assertion_
 
 With this it will be easier to write our tests:
 
@@ -106,13 +103,16 @@ test("sums negative numbers", () => {
 
 Running this file will produce this output:
 
-```
-✅ sums 2 numbers
-✅ sums 3 numbers
-✅ sums negative numbers
-```
+<details>
+  <summary>Output</summary>
+  ```
+  ✅ sums 2 numbers
+  ✅ sums 3 numbers
+  ✅ sums negative numbers
+  ```
+</details>
 
-Awesome, right? We just write our own very minimal test framework ✨ 
+Awesome, right? We just write our own very minimal test framework ✨
 
 Interestngly `jest` works in a similar fashion. Jest already comes pre-installed with CRA, so we can just run our test:
 
@@ -122,17 +122,20 @@ npm test sum.test.js
 
 Which will produce this beautiful report in the console:
 
-```
- PASS  src/00-vanilla-test/sum.test.js
-  ✓ sums 2 numbers (1 ms)
-  ✓ sums 3 numbers
-  ✓ sums negative numbers
+<details>
+  <summary>Output</summary>
+  ```
+  PASS  src/00-vanilla-test/sum.test.js
+    ✓ sums 2 numbers (1 ms)
+    ✓ sums 3 numbers
+    ✓ sums negative numbers
 
-Test Suites: 1 passed, 1 total
-Tests:       3 passed, 3 total
-Snapshots:   0 total
-Time:        0.56 s, estimated 1 s
-```
+  Test Suites: 1 passed, 1 total
+  Tests: 3 passed, 3 total
+  Snapshots: 0 total
+  Time: 0.56 s, estimated 1 s
+  ```
+</details>
 
 Just comes with its own assertion library ([Jest Matchers](https://jestjs.io/docs/expect)) and a bunch of other features which we explore as we go further.
 
@@ -150,9 +153,9 @@ Let's create a boilerplate for a future function:
 
 ```js
 function pluralize() {
-  return '';
+  return "";
 }
-```
+````
 
 Now, let's write some tests to cover main cases:
 
@@ -173,14 +176,14 @@ If we run our tests `npm test pluralize` we see that they are red 🛑. Let's go
 
 ```js
 function pluralize(count, singularWord, pluralWord) {
-    if (count === 1) {
-        return `${count} ${singularWord}`;
-    }
-    return `${count} ${pluralWord}`;
+  if (count === 1) {
+    return `${count} ${singularWord}`;
+  }
+  return `${count} ${pluralWord}`;
 }
 ```
 
-Now tests are green 🟢, but we see that in most of the cases plural form could be generalted based on singular form by adding `s`. Would be cool for our function to handle it. 
+Now tests are green 🟢, but we see that in most of the cases plural form could be generalted based on singular form by adding `s`. Would be cool for our function to handle it.
 
 Let's write a test for it:
 
@@ -219,7 +222,7 @@ Red tests again 🛑, let's handle this case and throw and error in our code:
 ```js
 if (typeof count !== "number") {
   throw new Error("Invalid input: count needs to be a number");
-}  
+}
 ```
 
 Awesome, all green! This how your workflow with TDD could look like ✨
