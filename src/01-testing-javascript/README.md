@@ -2,12 +2,18 @@
 
 Here we explore how testing works, build a small testing framework and learn to use Jest to test JavaScript.
 
+We cover:
+- What is testing
+- Assertions and testing framework
+- Setting up Jest
+- Using Jest to test JavaScript code
+- What is TDD and how to use it
+
 **Let's go! 🚀**
 
 ## 🐇 Jump around <!-- omit in toc -->
 
-- [✨ Summary](#-summary)
-- [📝 Notes](#-notes)
+- [📝 Summary](#-summary)
   - [Part 1: What is testing](#part-1-what-is-testing)
   - [Part 2: Introducing TDD](#part-2-introducing-tdd)
 - [👩‍💻 Tasks](#-tasks)
@@ -18,14 +24,7 @@ Here we explore how testing works, build a small testing framework and learn to 
 - [📚 Materials](#-materials)
 - [👉 Next](#-next)
 
-## ✨ Summary
-
-- What is testing
-- Assertions and testing library
-- Setting up Jest
-- Using Jest to test JavaScript code
-
-## 📝 Notes
+## 📝 Summary
 
 ### Part 1: What is testing
 

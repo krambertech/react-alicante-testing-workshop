@@ -16,4 +16,7 @@ test.todo("your test");
 // To test rerender, use `rerender` method from react-testing-library
 // https://testing-library.com/docs/react-testing-library/api/#rerender
 //
+// To test disabled button, use `toBeDisabled` matcher
+// https://testing-library.com/docs/dom-testing-library/api-queries#tobedisabled
+//
 // Good luck! 🍀
