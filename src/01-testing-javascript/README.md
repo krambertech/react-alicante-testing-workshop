@@ -250,7 +250,7 @@ You need to cover with tests function that multiples 2 numbers. Head to `/task-0
 
 ### Task 1.2: TDD
 
-// TODO: add
+Implement passwordValidator function using TDD method. Head to `/task-02-password-validator-tdd` and open `passwordValidator.test.js` file. It contains all requirements in the comments.
 
 ### Task 1.3 (🎁 BONUS): Cover `toCamelCase` function with tests
 

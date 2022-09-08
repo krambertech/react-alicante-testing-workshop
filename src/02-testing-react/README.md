@@ -14,7 +14,6 @@ We just covered testing JavaScript code and now it is time to talk more on we ca
   - [Task 2.3 (🎁 BONUS): Write tests for greeting component](#task-23--bonus-write-tests-for-greeting-component)
 - [💡 Quiz](#-quiz)
 - [📚 Materials](#-materials)
-- [👉 Next](#-next)
 
 
 ## ✨ Summary
@@ -269,7 +268,7 @@ test("displays success message when the word is at correct length", async () => 
 
 ### Part 2: Testing async components and mocking
 
-Now, let's take on testing a more complex React component. Let's test `Login` 
+Now, let's take on testing a more complex React component. Let's test `Login`. 
 
 // TODO: add more
 
@@ -283,7 +282,11 @@ Now it's time for you to practice testing React components on your own. I prepar
 
 Head to `/task-02-quotes`, there you will find small component that generates random quotes using REST API. Open `Quote.test.jsx` file and cover its logic with tests utilizing the principles we just learned right now.
 
+🎁 Bonus task: Add loading indication feature through TDD
+
 ### Task 2.3 (🎁 BONUS): Write tests for greeting component
+
+ℹ️ *Bonus tasks can be completed if you finished early with main tasks or at home*
 
 Head to `/task-03-welcome`, there you will find small component that generates random quotes using REST API.
 
@@ -303,7 +306,3 @@ Open `Welcome.test.jsx` file and cover its existing logic with tests. And then u
 - [Write fewer, longer tests](https://kentcdodds.com/blog/write-fewer-longer-tests)
 - [Jest's Mock API](https://jestjs.io/docs/mock-function-api)
 - [Async methods in `testing-library`](https://testing-library.com/docs/dom-testing-library/api-async)
-
-## 👉 Next
-
-// TODO: add "next"
