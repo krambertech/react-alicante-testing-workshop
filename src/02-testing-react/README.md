@@ -268,9 +268,103 @@ test("displays success message when the word is at correct length", async () => 
 
 ### Part 2: Testing async components and mocking
 
-Now, let's take on testing a more complex React component. Let's test `Login`. 
+<!-- Now, let's take on testing a more complex React component. Let's test `Login` component, it allows to enter password and calls mock API to check whether the password is correct.
 
-// TODO: add more
+If it is correct, it shows a success message. If it is incorrect, it shows an error message.
+
+<details>
+  <summary>Login.jsx</summary>
+
+  ```jsx
+  import { useState } from "react";
+  import { logIn } from "./api";
+
+  export default function Login() {
+    const [password, setPassword] = useState("");
+    const [status, setStatus] = useState("none");
+
+    const handleChangePassword = (e) => {
+      setPassword(e.target.value);
+    };
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setStatus("loading");
+
+      try {
+        await logIn({ password });
+        setStatus("success");
+      } catch {
+        setStatus("failure");
+      }
+
+      setPassword("");
+    };
+
+    return (
+      <div>
+        <h3>Log in</h3>
+        {status === "success" ? (
+          <h1>✨ Welcome! You are logged in! ✨</h1>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={handleChangePassword}
+            />
+            <button type="submit" disabled={!password}>
+              🔒 Log in
+            </button>
+            {status === "loading" ? <p role="status">Logging in...</p> : null}
+            {status === "failure" ? (
+              <p role="alert">Log in failed, try a different password</p>
+            ) : null}
+          </form>
+        )}
+      </div>
+    );
+  }
+  ```
+</details>
+
+First let's cover existing logic with tests. Let's start by checking that it renders login form correctly.
+
+```jsx
+test("renders login form with disabled button", async () => {
+  render(<Login />);
+
+  // headoing is rendered
+  expect(screen.getByRole("heading")).toHaveTextContent(/log in/i);
+
+  // password input is rendered and empty
+  const passwordInput = screen.getByLabelText(/password/i);
+  expect(passwordInput).toBeInTheDocument();
+  expect(passwordInput).toHaveValue("");
+
+  // submit button is disabled when password empty
+  const submitButton = screen.getByRole("button", { name: /log in/i });
+  expect(submitButton).toBeDisabled();
+});
+```
+
+Done! But now we need somehow to test how the form works with API. Jest has a handy set of [mocking tools](https://jestjs.io/docs/mock-functions) that allow us to mock API calls, modules, functions, etc.
+
+To use it we can:
+
+```js
+// mock the whole api module
+jest.mock("./api");
+
+// then, when we import that module, Jest will automnatcally mock it
+import { logIn as mockLogIn } from "./api";
+
+
+``` -->
+
+*This part lacks transcript for now, it will be added later!*
 
 ## 👩‍💻 Tasks
 

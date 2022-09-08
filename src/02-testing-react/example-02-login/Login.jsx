@@ -30,7 +30,7 @@ export default function Login() {
 
   return (
     <div>
-        <h3>Log in</h3>
+      <h3>Log in</h3>
       {status === "success" ? (
         <div>
           <h1>✨ Welcome! You are logged in! ✨</h1>
