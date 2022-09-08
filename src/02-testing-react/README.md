@@ -12,7 +12,7 @@ We just covered testing JavaScript code and now it is time to talk more on we ca
   - [Task 2.1: Add tests for Counter component](#task-21-add-tests-for-counter-component)
   - [Task 2.2: Cover quote generation component with tests](#task-22-cover-quote-generation-component-with-tests)
   - [Task 2.3 (🎁 BONUS): Write tests for greeting component](#task-23--bonus-write-tests-for-greeting-component)
-- [💡 Quiz](#-quiz)
+- [💡 Feedback](#-feedback)
 - [📚 Materials](#-materials)
 
 
@@ -295,9 +295,9 @@ Open `Welcome.test.jsx` file and cover its existing logic with tests. And then u
 - "Greet me" button should be disabled when field is empty
 - Display warning if user enters the same name twice
 
-## 💡 Quiz
+## 💡 Feedback
 
-// TODO: Add quiz
+**[https://r3coqpp2ta3.typeform.com/to/IgAPpCK4](https://r3coqpp2ta3.typeform.com/to/IgAPpCK4)**
 
 ## 📚 Materials
 

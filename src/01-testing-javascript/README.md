@@ -20,7 +20,7 @@ We cover:
   - [Task 1.1: Cover `multiply` function with tests](#task-11-cover-multiply-function-with-tests)
   - [Task 1.2: TDD](#task-12-tdd)
   - [Task 1.3 (🎁 BONUS): Cover `toCamelCase` function with tests](#task-13--bonus-cover-tocamelcase-function-with-tests)
-- [💡 Quiz](#-quiz)
+- [💡 Feedback](#-feedback)
 - [📚 Materials](#-materials)
 - [👉 Next](#-next)
 
@@ -260,9 +260,9 @@ You need to cover with tests function that transforms strings to camelCase. It u
 
 `/task-03-camel-case` and open `camelCase.test.js`
 
-## 💡 Quiz
+## 💡 Feedback
 
-// TODO: add quiz
+**[https://r3coqpp2ta3.typeform.com/to/IgAPpCK4](https://r3coqpp2ta3.typeform.com/to/IgAPpCK4)**
 
 ## 📚 Materials
 
