@@ -1,9 +1,9 @@
 // 👉 TASK: Write tests for Quote component
-// Make sure to cover special cases, decide yourself 
+// Make sure to cover special cases, decide yourself
 // on which cases you will split it
 //
 // 🎁 Bonus task: Add loading indication feature through TDD
-// 
+//
 // Run your tests with:
 //   npm test Quote
 

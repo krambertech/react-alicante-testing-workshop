@@ -1,7 +1,7 @@
 // 👉 TASK: Write tests for `multiply` function
 // make sure to cover different cases in your tests
 //
-// When working on tests you might find it useful to try 
+// When working on tests you might find it useful to try
 // and break your code and see how tests react
 //
 // Run your tests with:
@@ -26,7 +26,7 @@ test("mulptiplies negative numbers", () => {
 });
 
 test("handles invalid input", () => {
-  expect(() => multiply('hello', 3)).toThrowError();
+  expect(() => multiply("hello", 3)).toThrowError();
   expect(() => multiply(undefined, null)).toThrowError();
   expect(() => multiply(null, 3)).toThrowError();
   expect(() => multiply({}, 2)).toThrowError();

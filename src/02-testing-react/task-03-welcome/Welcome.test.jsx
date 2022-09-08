@@ -5,7 +5,6 @@
 // - "Greet me" button should be disabled when field is empty
 // - Display warning if user enters the same name twice
 
-
 import Welcome from "./Welcome";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";

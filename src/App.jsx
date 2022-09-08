@@ -13,16 +13,16 @@ function App() {
     <div className="App">
       <Header />
       <BrowserRouter>
-      <main className="App-main">
-        <Navigation />
-        <div className="App-content">
-        <Routes>
-          <Route index>Please choose an example</Route>
-          {examples.map(({route, component: Component}) => (
-            <Route key={route} path={route} element={<Component />} />
-          ))}
-        </Routes>
-        </div>
+        <main className="App-main">
+          <Navigation />
+          <div className="App-content">
+            <Routes>
+              <Route index>Please choose an example</Route>
+              {examples.map(({ route, component: Component }) => (
+                <Route key={route} path={route} element={<Component />} />
+              ))}
+            </Routes>
+          </div>
         </main>
       </BrowserRouter>
     </div>

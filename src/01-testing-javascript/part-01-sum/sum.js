@@ -3,4 +3,3 @@ const sum = (...numbers) => {
 };
 
 module.exports = sum;
-

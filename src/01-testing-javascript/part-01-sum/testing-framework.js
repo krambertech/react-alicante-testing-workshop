@@ -27,11 +27,10 @@ const describe = (name, cb) => {
   passed = 0;
   failed = 0;
 
-  console.group(`👉 ${name}`)
+  console.group(`👉 ${name}`);
   cb();
-  console.log(`${passed} passed, ${failed} failed, ${passed+failed} total`);
-  console.groupEnd(`👉 ${name}`)
-}
+  console.log(`${passed} passed, ${failed} failed, ${passed + failed} total`);
+  console.groupEnd(`👉 ${name}`);
+};
 
 module.exports = { test, expect, describe };
-

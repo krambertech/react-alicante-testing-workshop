@@ -1,8 +1,4 @@
-import {
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { logIn as mockLogIn } from "./api";
 import Login from "./Login";
@@ -38,7 +34,7 @@ test("allows to log in with correct password", async () => {
   //enter password and submit
   const passwordInput = screen.getByLabelText(/password/i);
   userEvent.type(passwordInput, "password");
-  
+
   const submitButton = screen.getByRole("button", { name: /log in/i });
   userEvent.click(submitButton);
 

@@ -1,45 +1,45 @@
-import {
-    render,
-    screen,
-  } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Yell from './Yell';
+import Yell from "./Yell";
 
 test("opens alert when button is clicked", () => {
-    // mocked alert
-    window.alert = jest.fn();
-    
-    render(<Yell />);
+  // mocked alert
+  window.alert = jest.fn();
 
-    const button = screen.getByRole('button', { name: /yell at me/i });
-    userEvent.click(button);
+  render(<Yell />);
 
-    expect(window.alert).toBeCalledTimes(1);
-    expect(window.alert).toBeCalledWith('HEY!');
+  const button = screen.getByRole("button", { name: /yell at me/i });
+  userEvent.click(button);
+
+  expect(window.alert).toBeCalledTimes(1);
+  expect(window.alert).toBeCalledWith("HEY!");
 });
 
 test("fires onBeenYelled after alert", () => {
-    window.alert = jest.fn();
-    const onBeenYelled = jest.fn();
-    
-    render(<Yell onBeenYelled={onBeenYelled} />);
+  window.alert = jest.fn();
+  const onBeenYelled = jest.fn();
 
-    const button = screen.getByRole('button', { name: /yell at me/i });
-    userEvent.click(button);
+  render(<Yell onBeenYelled={onBeenYelled} />);
 
-    expect(onBeenYelled).toBeCalledTimes(1);
+  const button = screen.getByRole("button", { name: /yell at me/i });
+  userEvent.click(button);
+
+  expect(onBeenYelled).toBeCalledTimes(1);
 });
 
 test("runs generateYellMessage if provided", () => {
-    window.alert = jest.fn();
-    const generateYellMessage = jest.fn().mockReturnValueOnce('HEY!').mockReturnValueOnce('WHAT!');
-    
-    render(<Yell generateYellMessage={generateYellMessage} />);
+  window.alert = jest.fn();
+  const generateYellMessage = jest
+    .fn()
+    .mockReturnValueOnce("HEY!")
+    .mockReturnValueOnce("WHAT!");
 
-    const button = screen.getByRole('button', { name: /yell at me/i });
-    userEvent.click(button);
-    userEvent.click(button);
+  render(<Yell generateYellMessage={generateYellMessage} />);
 
-    expect(window.alert).toHaveBeenNthCalledWith(1, "HEY!");
-    expect(window.alert).toHaveBeenNthCalledWith(2, "WHAT!");
+  const button = screen.getByRole("button", { name: /yell at me/i });
+  userEvent.click(button);
+  userEvent.click(button);
+
+  expect(window.alert).toHaveBeenNthCalledWith(1, "HEY!");
+  expect(window.alert).toHaveBeenNthCalledWith(2, "WHAT!");
 });

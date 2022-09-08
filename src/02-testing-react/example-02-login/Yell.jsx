@@ -1,6 +1,6 @@
 export default function Yell({ generateYellMessage, onBeenYelled }) {
   const handleYell = () => {
-    const message = generateYellMessage?.() || 'HEY!';
+    const message = generateYellMessage?.() || "HEY!";
 
     alert(message);
     onBeenYelled?.(message);

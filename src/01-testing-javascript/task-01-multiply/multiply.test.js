@@ -1,7 +1,7 @@
 // 👉 TASK: Write tests for `multiply` function
 // make sure to cover different cases in your tests
 //
-// When working on tests you might find it useful to try 
+// When working on tests you might find it useful to try
 // and break your code and see how tests react
 //
 // Run your tests with:
