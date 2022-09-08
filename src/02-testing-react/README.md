@@ -10,7 +10,8 @@ We just covered testing JavaScript code and now it is time to talk more on we ca
   - [Part 2: Testing async components and mocking](#part-2-testing-async-components-and-mocking)
 - [👩‍💻 Tasks](#-tasks)
   - [Task 2.1: Add tests for Counter component](#task-21-add-tests-for-counter-component)
-  - [Task 2.2](#task-22)
+  - [Task 2.2: Cover quote generation component with tests](#task-22-cover-quote-generation-component-with-tests)
+  - [Task 2.3 (🎁 BONUS): Write tests for greeting component](#task-23--bonus-write-tests-for-greeting-component)
 - [💡 Quiz](#-quiz)
 - [📚 Materials](#-materials)
 - [👉 Next](#-next)
@@ -278,9 +279,18 @@ Now, let's take on testing a more complex React component. Let's test `Login`
 
 Now it's time for you to practice testing React components on your own. I prepared Counter component that you would need to cover with a set of tests. Head to `/task-01-counter` and open `Counter.test.jsx` file.
 
-### Task 2.2 
+### Task 2.2: Cover quote generation component with tests
 
 Head to `/task-02-quotes`, there you will find small component that generates random quotes using REST API. Open `Quote.test.jsx` file and cover its logic with tests utilizing the principles we just learned right now.
+
+### Task 2.3 (🎁 BONUS): Write tests for greeting component
+
+Head to `/task-03-welcome`, there you will find small component that generates random quotes using REST API.
+
+Open `Welcome.test.jsx` file and cover its existing logic with tests. And then use TDD approach to add new functionality to it:
+- Field should clean itself after "Greet me" clicked
+- "Greet me" button should be disabled when field is empty
+- Display warning if user enters the same name twice
 
 ## 💡 Quiz
 
