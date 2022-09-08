@@ -15,3 +15,4 @@
 - `/01-testing-javascript` - Module 1 - Testing JavaScript
 - `/02-testing-react` - Module 2 - Testing React components
 - `/03-application` - Module 3 - Testing React application
+- `/04-e2e` - Module 4 - E2E testing with Cypress
