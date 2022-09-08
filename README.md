@@ -1,10 +1,11 @@
 # Testing React Aplications
 
-This a workshop that covers the basics of testing React apps. The workshop is in 3 parts:
+This a workshop that covers the basics of testing React apps. The workshop is in 4 parts:
 
-1. Fundamentals of testing and testing JavaScript
-2. Testing React components
-3. Applying everything we learned to test React application
+1. *available* Fundamentals of testing and testing JavaScript
+2. *available* Testing React components
+3. *coming* Applying everything we learned to test React application
+4. *coming* E2E testing with Cypress
 
 ## 🌱 Setup
 
@@ -21,7 +22,8 @@ In this repo inside `/src` folder you will find folders representing each part o
 ```
 📁 01-testing-javascript
 📁 02-testing-react
-📁 03-application
+📁 03-application (coming soon ✨)
+📁 04-e2e (coming soon ✨)
 ```
 
 Each part has its own `README.md` file that has:
