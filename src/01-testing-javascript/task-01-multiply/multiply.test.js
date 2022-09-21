@@ -13,7 +13,7 @@ import multiply from "./multiply";
 // 💡 Tip: make sure you cover different cases within this test
 test.todo("mulptiplies positive numbers");
 
-// Check that it can correctly multiply positive numbers
+// Check that it can correctly multiply negative numbers
 // 💡 Tip: make sure you cover different combinations of positive and negative numbers
 test.todo("mulptiplies negative numbers");
 

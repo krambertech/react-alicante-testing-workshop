@@ -17,7 +17,7 @@ test.todo("your test");
 // How to work with <select> elements, look into `useEvent.selectOptions`
 // https://testing-library.com/docs/ecosystem-user-event/#selectoptionselement-values-options
 //
-// To test async requests when content was displayed, you wan wait for oading indication to be removed:
+// To test async requests when content was displayed, you can wait for loading indicator to be removed:
 // https://testing-library.com/docs/dom-testing-library/api-async#waitforelementtoberemoved
 //
 // You would need to mock API the same way we did in the Welcome message example
