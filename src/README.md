@@ -3,7 +3,7 @@
 **Here you will find:**
 - source code of a demo app that displays all examples from the workshop to play around with
 - code we covered during the lectures and live coding
-- transcripts, notes and materials
+- notes and materials
 - tasks and their solutions 
 
 **Demo app:**
@@ -12,7 +12,6 @@
 - `examples.js` - all examples covered
 
 **Workshop modules:**
-- `/01-testing-javascript` - Module 1 - Testing JavaScript
-- `/02-testing-react` - Module 2 - Testing React components
-- `/03-application` - Module 3 - Testing React application
-- `/04-e2e` - Module 4 - E2E testing with Cypress
+- `/0-testing-js` - Module 0 - Testing JavaScript
+- `/1-testing-react-components` - Module 1 - Testing React components
+- `/2-testing-application` - Module 2 - Testing React application
