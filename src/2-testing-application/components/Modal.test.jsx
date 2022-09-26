@@ -3,8 +3,10 @@
 
 // import Modal from "./Modal";
 
+test.todo("renders children and title when open");
+
 test.todo(
-  "displays modal when it is open and does not display when it is closed"
+  "displays modal when it is open and does not displays when it is closed"
 );
 
 test.todo(

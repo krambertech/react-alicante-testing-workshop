@@ -76,11 +76,20 @@ You can see there is a searchbox on the page, but it is not implemented yet. Imp
 ### Task 2: Component unit testing
 
 In this task we will learn how to test react components in isolation. This can be useful for design system components you might have.
-In the same fashion we tested `Musing` component white a set of tests for `Modal` component.
+
+You can find example component test `/components/Musing.test.jsx`. Using a similar approach, white a set of tests for `Modal` component.
+
+Cover these cases:
+- renders children and title when open
+- displays modal when it is open and does not display when it is closed
+- displays close button if onClose provided and fires onClose when close button is clicked
 
 #### 🚀 Bonus task: Fires onClose when Escape is pressed
 
 You can notice that Modal component closes when Escape is pressed. Let's write a test case to check that it works as expected.
+
+**💡 Tips:**
+- You can use https://testing-library.com/docs/user-event/keyboard/ to simulate keyboard events
 
 #### 🚀 Bonus task: Implement a unit tests for `formatDate` utility function
 

@@ -57,6 +57,7 @@ textarea {
 button {
   font-weight: bold;
   background: #11615C;
+  cursor: pointer;
 }
 
 button:hover {
