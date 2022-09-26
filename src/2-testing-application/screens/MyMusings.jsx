@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import api from "../api";
 
 import Musing from "../components/Musing";
@@ -21,7 +21,6 @@ function MyMusings() {
     setData,
   } = useAsync(api.getMyMusings);
   const newMusingModal = useModal();
-  const [search, setSearch] = useState("");
 
   useHotKey("n", newMusingModal.open);
 
@@ -41,22 +40,11 @@ function MyMusings() {
     }
   };
 
-  const displayedMusings = search
-    ? data?.filter((musing) =>
-        musing.text.toLowerCase().includes(search.toLowerCase())
-      )
-    : data;
-
   return (
     <div className="MyMusings">
       <div className="MyMusings-toolbar">
         <button onClick={newMusingModal.open}>📝 New musing</button>
-        <input
-          role="searchbox"
-          type="search"
-          placeholder="🔍 Search musings"
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <input role="searchbox" type="search" placeholder="🔍 Search musings" />
       </div>
       <Modal
         title="📝 New musing"
@@ -70,19 +58,14 @@ function MyMusings() {
 
       {isPending ? (
         <p role="status">🤖 Loading musings...</p>
-      ) : displayedMusings?.length ? (
+      ) : data?.length ? (
         <>
           <p role="status">
-            {search
-              ? `Found ${pluralize(displayedMusings?.length || 0, "musing")}`
-              : `You have ${pluralize(
-                  displayedMusings?.length || 0,
-                  "musing"
-                )}`}
+            {`You have ${pluralize(data?.length || 0, "musing")}`}
           </p>
 
           <div className="MyMusings-list">
-            {displayedMusings?.map((item) => (
+            {data?.map((item) => (
               <Musing
                 key={item.id}
                 id={item.id}
