@@ -64,6 +64,11 @@ button:hover {
   color: #03282C;
 }
 
+button[aria-pressed="true"] {
+  background: #14E5C5;
+  color: #03282C;
+}
+
 button:disabled,
 input:disabled,
 optgroup:disabled,

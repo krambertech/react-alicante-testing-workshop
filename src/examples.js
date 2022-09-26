@@ -1,17 +1,23 @@
-import WordChecker from "./02-testing-react/example-01-word-checker/WordChecker";
-import Counter from "./02-testing-react/task-01-counter/Counter";
-import Welcome from "./02-testing-react/task-03-welcome/Welcome";
-import Login from "./02-testing-react/example-02-login/Login";
-import Quote from "./02-testing-react/task-02-quotes/Quote";
-import Yell from "./02-testing-react/example-02-login/Yell";
+import WordChecker from "./1-testing-react-components/1-word-checker/WordChecker";
+import Counter from "./1-testing-react-components/2-task-counter/Counter";
+import Login from "./1-testing-react-components/3-login/Login";
+import QuoteGenerator from "./1-testing-react-components/4-task-quotes/QuoteGenerator";
+import MusingsApp from "./2-testing-application/index";
 
 const examples = [
-  { name: "Word checker", component: WordChecker, route: "word-checker" },
-  { name: "Counter", component: Counter, route: "counter" },
-  { name: "Welcome", component: Welcome, route: "welcome" },
-  { name: "Login", component: Login, route: "login" },
-  { name: "Yelling", component: Yell, route: "yell" },
-  { name: "Quote generator", component: Quote, route: "quote" },
+  {
+    name: "💁‍♀️ Word checker",
+    component: WordChecker,
+    route: "word-checker",
+  },
+  { name: "🧑‍💻 Counter", component: Counter, route: "counter" },
+  { name: "💁‍♀️ Login", component: Login, route: "login" },
+  {
+    name: "🧑‍💻 Quote generator",
+    component: QuoteGenerator,
+    route: "quote-generator",
+  },
+  { name: "🧠 Musings", component: MusingsApp, route: "app" },
 ];
 
 export default examples;

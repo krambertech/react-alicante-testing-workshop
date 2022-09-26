@@ -1,0 +1,33 @@
+.Musing {
+    position: relative;
+    border: 2px solid #14E5C5;
+    border-radius: 2px;
+    padding: 16px;
+    background-color: #14e5c56e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Musing p {
+    margin: 0;
+}
+
+.Musing-time {
+    margin-top: 8px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.Musing-delete {
+    height: 24px;
+    width: 24px;
+    font-size: 16px;
+    line-height: 1;
+    padding: 0 4px;
+    border-radius: 50%;
+
+    position: absolute;
+    top: -12px;
+    right: -12px;
+}

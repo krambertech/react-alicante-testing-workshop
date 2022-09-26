@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@supabase/supabase-js": "^1.35.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
@@ -16,7 +14,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:coverage": "react-scripts test --coverage",
+    "cypress:install": "cypress install",
+    "cypress:run": "cypress run",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -38,9 +39,20 @@
   },
   "jest": {
     "testMatch": [
-      "**/__tests__/**/*.[jt]s?(x)", 
-      "**/?(*.)+(spec|test).[jt]s?(x)", 
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test).[jt]s?(x)",
       "!**/__solution__/**"
+    ],
+    "collectCoverageFrom": [
+      "src/02-application/**/*.{js,jsx}",
+      "!**/node_modules/**"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "^8.0.3",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "cypress": "^10.8.0"
   }
 }

@@ -1,0 +1,24 @@
+.Login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.Login h4 {
+    margin: 0;
+    margin-bottom: 24px;
+}
+
+.Login-form {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.Login-form label {
+    display: flex;  
+    flex-direction: column;
+}

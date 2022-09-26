@@ -1,0 +1,31 @@
+.Modal {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.Modal-content {
+    border: 2px solid #14E5C5;
+    border-radius: 2px;
+    padding: 16px;
+    background-color: #03282C;
+    position: relative;
+}
+
+.Modal-title {
+    margin: 8px 0 24px 0;
+}
+
+.Modal-close {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    border-radius: 50%;
+}

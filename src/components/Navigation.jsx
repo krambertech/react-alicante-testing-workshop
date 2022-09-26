@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import examples from "../examples";
 
-import './Navigation.css';
+import "./Navigation.css";
 
 export default function Navigation() {
   return (
@@ -9,7 +9,12 @@ export default function Navigation() {
       <ul>
         {examples.map(({ name, route }) => (
           <li key={route}>
-            <NavLink to={route} className="Navigation-item" activeClassName="selected">
+            <NavLink
+              to={route}
+              className={({ isActive }) =>
+                "Navigation-item" + (isActive ? " active" : "")
+              }
+            >
               {name}
             </NavLink>
           </li>

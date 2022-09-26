@@ -1,0 +1,13 @@
+.MyMusings-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 16px;
+    margin-top: 24px;
+}
+
+.MyMusings-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}

@@ -1,0 +1,15 @@
+.NewMusing {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.NewMusing textarea {
+    resize: none;
+    width: 100%;
+}
+
+.NewMusing-buttons {
+    align-self: flex-end;
+}
