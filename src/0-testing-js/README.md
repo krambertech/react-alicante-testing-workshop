@@ -2,28 +2,18 @@
 
 Here we explore how testing works, build a small testing framework and learn to use Jest to test JavaScript.
 
-We cover:
-- What is testing
-- Assertions and testing framework
-- Setting up Jest
-- Using Jest to test JavaScript code
-- What is TDD and how to use it
-
 **Let's go! 🚀**
 
 ## 🐇 Jump around <!-- omit in toc -->
 
-- [📝 Background](#-background)
-  - [Part 2: Introducing TDD](#part-2-introducing-tdd)
+- [📝 Notes](#-notes)
+  - [TDD](#tdd)
 - [👩‍💻 Tasks](#-tasks)
   - [Task 1.1: Cover `multiply` function with tests](#task-11-cover-multiply-function-with-tests)
   - [Task 1.2: TDD](#task-12-tdd)
-  - [Task 1.3 (🎁 BONUS): Cover `toCamelCase` function with tests](#task-13--bonus-cover-tocamelcase-function-with-tests)
-- [💡 Feedback](#-feedback)
 - [📚 Materials](#-materials)
-- [👉 Next](#-next)
 
-## 📝 Background
+## 📝 Notes
 
 Imagine building a house, you create blueprint and build it. After it is done, you rarely make changes to the core construction. Software os different, it is dymanic -- we make changes to it over time. Different types of software testing can help us to ensure that the result meets requirements and continues meeting them as we make changes to it.
 
@@ -147,7 +137,7 @@ Which will produce this beautiful report in the console:
 
 Just comes with its own assertion library ([Jest Matchers](https://jestjs.io/docs/expect)) and a bunch of other features which we explore as we go further.
 
-### Part 2: Introducing TDD
+### TDD
 
 So far we wrote all tests for the code that is already written to create a safetynet for us when we make changes. But what if we write tests first?
 
@@ -247,21 +237,8 @@ You need to cover with tests function that multiples 2 numbers. Head to `/task-0
 
 Implement passwordValidator function using TDD method. Head to `/task-02-password-validator-tdd` and open `passwordValidator.test.js` file. It contains all requirements in the comments.
 
-### Task 1.3 (🎁 BONUS): Cover `toCamelCase` function with tests
-
-ℹ️ *Bonus tasks can be completed if you finished early with main tasks or at home*
-
-You need to cover with tests function that transforms strings to camelCase. It uses regular expressions, which can be hard to wrap your mind around, that's why wring tests for it is important.
-
-`/task-03-camel-case` and open `camelCase.test.js`
-
-## 💡 Feedback
-
-**[https://r3coqpp2ta3.typeform.com/to/IgAPpCK4](https://r3coqpp2ta3.typeform.com/to/IgAPpCK4)**
-
 ## 📚 Materials
 
 - [Jest's documentation](https://jestjs.io/docs/getting-started)
 - [Jest's `expect` docs](https://jestjs.io/docs/expect)
 
-## [👉 Next](https://github.com/krambertech/react-testing-workshop/tree/main/src/02-testing-react)
