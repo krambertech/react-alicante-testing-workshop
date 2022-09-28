@@ -1,8 +1,20 @@
+/**
+ * 👉 TASK: e2e testing with Cypress
+ *
+ * Let's practice in testing our application with Cypress! Beginning of the
+ * test is already written for you, but you need to complete the rest of the
+ * test.
+ *
+ * Follow comments to see what you need to test.
+ *
+ * To run cypress test:
+ * > npm run cypress:open
+ */
 describe("smoke", () => {
   it("allows sign up, create a note, delete and sign out", () => {
     cy.visit("/app");
 
-    // sign in
+    // 1. Sign up
     cy.findByRole("button", { name: /sign up/i }).click();
 
     cy.findByRole("dialog").within(() => {
@@ -11,30 +23,15 @@ describe("smoke", () => {
       cy.findByRole("button", { name: /create account/i }).click();
     });
 
-    // empty state
+    // 2. Check Empty state
     cy.findByText(/you do not have any musings yet/i).should("exist");
 
-    // create musing
-    cy.findByRole("button", { name: /new musing/i }).click();
-    cy.findByRole("dialog").within(() => {
-      cy.findByLabelText(/write something/i).type("Hello world");
-      cy.findByRole("button", { name: /save/i }).click();
-    });
+    // 3. Create musing
 
-    // check it was created
-    const musing = cy.findByTestId("musing");
-    musing.should("exist");
+    // 4. Check it was created
 
-    // delete
-    musing.within(() => {
-      cy.findByRole("button", { name: /delete/i }).click();
-    });
+    // 5. Delete musing
 
-    cy.findByText("musing").should("not.exist");
-    cy.findByText(/you do not have any musings yet/i).should("exist");
-
-    // sign out
-    cy.findByRole("button", { name: /sign out/i }).click();
-    cy.findByRole("heading", { name: /you need to log in/i }).should("exist");
+    // 6. Sign out
   });
 });

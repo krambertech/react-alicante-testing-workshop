@@ -1,8 +1,8 @@
-import WordChecker from "./1-testing-react-components/1-word-checker/WordChecker";
-import Counter from "./1-testing-react-components/2-task-counter/Counter";
-import Login from "./1-testing-react-components/3-login/Login";
-import QuoteGenerator from "./1-testing-react-components/4-task-quotes/QuoteGenerator";
-import MusingsApp from "./2-testing-application/index";
+import WordChecker from "./2.1-testing-react-fundamentals/WordChecker";
+import Counter from "./2.2-counter-task/Counter";
+import Login from "./3.1-testing-react-async/Login";
+import QuoteGenerator from "./3.2-quote-generation-task/QuoteGenerator";
+import MusingsApp from "./4-testing-application";
 
 const examples = [
   {

@@ -52,7 +52,7 @@
       "!**/__solution__/**"
     ],
     "collectCoverageFrom": [
-      "src/02-application/**/*.{js,jsx}",
+      "src/4-testing-application/**/*.{js,jsx}",
       "!**/node_modules/**"
     ]
   }
