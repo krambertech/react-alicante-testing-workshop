@@ -34,8 +34,8 @@ test("displays a quote from API", async () => {
   userEvent.click(generateButton);
 
   // wait for loading to finish
-  expect(screen.getByRole("status")).toHaveTextContent(/loading/i);
-  await waitForElementToBeRemoved(() => screen.queryByText(/loading/i));
+  const loading = screen.getByRole("status", { name: /loading/i });
+  await waitForElementToBeRemoved(loading);
 
   // check quote
   expect(screen.getByText(quoteContent)).toBeInTheDocument();
@@ -69,7 +69,7 @@ test("allows to select category and displays quote", async () => {
   userEvent.click(generateButton);
 
   // wait for loading to finish
-  await waitForElementToBeRemoved(() => screen.queryByText(/loading.../i));
+  await waitForElementToBeRemoved(() => screen.queryByText(/loading/i));
 
   // check quote
   expect(screen.getByText(quoteContent)).toBeInTheDocument();
