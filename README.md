@@ -39,3 +39,8 @@ In this repo inside `/src` folder you will find representing each part of the wo
 - [React Testing Library cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)
 - [Testing library queries](https://testing-library.com/docs/queries/about/)
 - [Kent C. Dodds's blog](https://kentcdodds.com/blog/)
+
+## 💭Feedback
+I would really appreciate your anonymous feedback about the workshop!
+
+👉 https://spmtqsfr5vu.typeform.com/to/XR2DbgNq
