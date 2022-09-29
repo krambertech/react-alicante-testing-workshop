@@ -1,9 +1,6 @@
 const sum = (...numbers) => {
-  return numbers.reduce(
-    (result, number) =>
-      result + (Array.isArray(number) ? sum(...number) : number),
-    0
-  );
+  return numbers.reduce((result, number) => result + number, 0);
 };
 
-module.exports = sum;
+sum(2, 3); // => 5
+sum(2, 3, 4); // => 9
