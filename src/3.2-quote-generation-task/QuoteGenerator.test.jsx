@@ -7,14 +7,14 @@
  * > npm test QuoteGenerator
  */
 
-import { render, screen } from "@testing-library/react";
-// import userEvent from "@testing-library/user-event";
-// import { fetchRandomQuote as mockFetchRandomQuote } from "./api";
+import { getByRole, render, screen, waitForElementToBeRemoved } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { fetchRandomQuote as mockFetchRandomQuote } from "./api";
 
 import QuoteGenerator from "./QuoteGenerator";
 
 // To mock API module:
-// jest.mock("./api");
+jest.mock("./api");
 
 /**
  * Write a test that it fetches and displays a random quote
@@ -28,7 +28,7 @@ import QuoteGenerator from "./QuoteGenerator";
  * - To wait until loading finishes you have a few strategies, read more about them
  *   [here](https://testing-library.com/docs/dom-testing-library/api-async#waitfor)
  */
-test("fetches and displays a random quote from API", () => {
+test("fetches and displays a random quote from API", async () => {
   const mockedQuote = {
     _id: "HBLejCmmWoIy",
     author: "John Snow",
@@ -38,12 +38,25 @@ test("fetches and displays a random quote from API", () => {
     dateAdded: "2020-01-01",
     dateModified: "2020-01-01",
   };
+  mockFetchRandomQuote.mockResolvedValueOnce(mockedQuote);
 
   render(<QuoteGenerator />);
 
   expect(screen.getByRole("heading")).toHaveTextContent(/random quote/i);
 
-  // TODO: write rest of the test here
+  const generateButton = screen.getByRole('button', { name: /generate a random quote/i });
+  expect(generateButton).toBeInTheDocument();
+
+  userEvent.click(generateButton);
+
+  const loading = screen.getByText(/loading/i);
+
+  await waitForElementToBeRemoved(loading);
+
+  expect(screen.getByText(/call me lord snow/i)).toBeInTheDocument();
+  expect(screen.getByText(/john snow/i)).toBeInTheDocument();
+
+  expect(mockFetchRandomQuote).toBeCalledTimes(1);
 });
 
 /**
@@ -55,7 +68,37 @@ test("fetches and displays a random quote from API", () => {
  * - To select an option from a select element use `userEvent.selectOptions`
  *   https://testing-library.com/docs/ecosystem-user-event/#selectoptionselement-values-options
  */
-test.todo("allows to select category and displays quote");
+test("allows to select category and displays quote", async () => {
+  // const mockedQuote = {
+  //   _id: "HBLejCmmWoIy",
+  //   author: "John Snow",
+  //   content: "Don't call me Lord Snow",
+  //   length: 80,
+  //   tags: [],
+  //   dateAdded: "2020-01-01",
+  //   dateModified: "2020-01-01",
+  // };
+  mockFetchRandomQuote.mockResolvedValueOnce(mockQuote({ content: 'king in the north', author: 'Arya Stark' }));
+  render(<QuoteGenerator />);
+
+  expect(screen.getByRole('heading', { name: /random quote/i })).toBeInTheDocument();
+
+  const combobox = screen.getByRole('combobox', { name: /choose category/i });
+  userEvent.selectOptions(combobox, 'history');
+  expect(screen.getByRole('option', { name: /history/i }).selected).toBeTruthy();
+
+  const generateButton = screen.getByRole('button', { name: /generate a random quote/i });
+  userEvent.click(generateButton);
+
+  const loading = screen.getByText(/loading/i);
+  await waitForElementToBeRemoved(loading);
+
+  expect(screen.getByText(/king in the north/i)).toBeInTheDocument();
+  expect(screen.getByText(/arya stark/i)).toBeInTheDocument();
+
+  expect(mockFetchRandomQuote).toBeCalledTimes(1);
+  expect(mockFetchRandomQuote).toBeCalledWith({ category: 'history' });
+});
 
 /**
  * 🚀 BONUS (TDD)
@@ -66,7 +109,26 @@ test.todo("allows to select category and displays quote");
  * 💡 Tips:
  * - Use `.mockRejectedValueOnce` to mock API call failure (rejected promise)
  */
-// test.todo("displays an error message when API call fails");
+
+test("displays an error message when API call fails", async () => {
+  mockFetchRandomQuote.mockRejectedValueOnce();
+
+  render(<QuoteGenerator />);
+
+  // select category generate quote
+  const generateButton = screen.getByRole("button", {
+    name: /generate a random quote/i,
+  });
+  userEvent.click(generateButton);
+
+  expect(screen.queryByText(/loading.../i)).toBeInTheDocument();
+
+  // wait for loading to finish
+  await waitForElementToBeRemoved(() => screen.queryByText(/loading/i));
+
+  // check error message
+  expect(screen.getByRole("alert")).toHaveTextContent(/something went wrong/i);
+})
 
 /**
  * 🚀 BONUS
@@ -81,4 +143,15 @@ test.todo("allows to select category and displays quote");
  *
  * Then use it in your tests to simplify mocking
  */
-// function mockQuote(overrides) {}
+function mockQuote(overrides) {
+  return {
+    _id: "HBLejCmmWoIy",
+    author: "John Snow",
+    content: "Don't call me Lord Snow",
+    length: 80,
+    tags: [],
+    dateAdded: "2020-01-01",
+    dateModified: "2020-01-01",
+    ...overrides
+  }
+}

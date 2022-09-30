@@ -5,10 +5,10 @@
  * > npm test Counter
  * */
 
-// import { render, screen } from "@testing-library/react";
-// import userEvent from "@testing-library/user-event";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
-// import Counter from "./Counter";
+import Counter from "./Counter";
 
 /**
  * Write a test that Counters renders with initial value 0 and displays increment
@@ -18,7 +18,13 @@
  *  - To access buttons use `getByRole("button", { name: /label/i })`
  * - To access counter's value you can use `getByText(/count: X/i)` query
  */
-test.todo("renders with initial value 0 and increment and decrement buttons");
+test("renders with initial value 0 and increment and decrement buttons", () => {
+    render(<Counter />);
+
+    expect(screen.getByRole('button', { name: /decrement/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /increment/i })).toBeInTheDocument();
+    expect(screen.getByText(/count: 0/i)).toBeInTheDocument();
+})
 
 /**
  * Write a test that Counter allows to increment and decrement value
@@ -26,7 +32,22 @@ test.todo("renders with initial value 0 and increment and decrement buttons");
  * 💡 Tips:
  * - To click on a button use `userEvent.click(button)`
  */
-test.todo("allows increment and decrement");
+test("allows increment and decrement", () => {
+    render(<Counter />);
+
+    //Check if counter is at 0.
+    expect(screen.getByText(/count: 0/i)).toBeInTheDocument();
+
+    const dec = screen.getByRole('button', { name: /decrement/i });
+    const inc = screen.getByRole('button', { name: /increment/i });
+
+    userEvent.click(dec);
+    expect(screen.getByText(/count: -1/i)).toBeInTheDocument();
+
+    userEvent.click(inc);
+    userEvent.click(inc);
+    expect(screen.getByText(/count: 1/i)).toBeInTheDocument();
+})
 
 /**
  * 🚀 BONUS (TDD)
@@ -35,7 +56,10 @@ test.todo("allows increment and decrement");
  * Example:
  * <Counter initialValue={3} />
  */
-// test.todo("allows to set initial value");
+test("allows to set initial value", () => {
+    render(<Counter initialValue={3} />);
+    expect(screen.getByText(/count: 3/i)).toBeInTheDocument();
+})
 
 /**
  * 🚀 BONUS (TDD)
@@ -50,7 +74,27 @@ test.todo("allows increment and decrement");
  * 💡 Tips:
  * - To check if button is disabled use `toBeDisabled()` matcher
  */
-// test.todo("does not allow to go below min and above max");
+test("does not allow to go below min and above max", () => {
+    render(<Counter min={0} max={5} />);
+
+    const dec = screen.getByRole('button', { name: /decrement/i });
+    const inc = screen.getByRole('button', { name: /increment/i });
+
+    //Check if disabled.
+    expect(dec).toBeDisabled();
+
+    //Try to decrement.
+    runTimes(5, () => userEvent.click(dec))
+
+    //Should still be 0.
+    expect(screen.getByText(/count: 0/i)).toBeInTheDocument();
+
+    //Click 10 times.
+    runTimes(5, () => userEvent.click(inc))
+    //Should be 5.
+    expect(screen.getByText(/count: 5/i)).toBeInTheDocument();
+
+});
 
 /**
  * 🚀 BONUS
@@ -63,4 +107,8 @@ test.todo("allows increment and decrement");
  * Then, use it in your tests to make them more consice
  */
 
-// function runTimes() {}
+function runTimes(nr, callback) {
+    for (let i = 0; i < nr; i++) {
+        callback()
+    }
+}

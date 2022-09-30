@@ -27,6 +27,12 @@ function QuoteGenerator() {
       category: quoteCategory === "all" ? null : quoteCategory,
     });
 
+    if (quote.error) {
+      setIsLoading(false);
+      alert('something went wrong')
+      return
+    }
+
     setQuote(quote);
     setIsLoading(false);
   };

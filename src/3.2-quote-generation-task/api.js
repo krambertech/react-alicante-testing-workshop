@@ -12,9 +12,19 @@
 // }
 
 export async function fetchRandomQuote({ category }) {
-  const response = await fetch(
+  const response = await (fetch(
     `https://api.quotable.io/random?tags=${category || ""}`
-  );
-  const json = await response.json();
-  return json;
+  ).catch(handleError));
+
+  if (response.ok) {
+    return await response.json();
+  }
 }
+
+
+var handleError = function (err) {
+  console.warn(err);
+  return new Response(JSON.stringify({
+    error: 'Error'
+  }));
+};
