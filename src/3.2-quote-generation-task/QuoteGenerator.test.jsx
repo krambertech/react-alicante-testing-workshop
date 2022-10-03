@@ -9,6 +9,7 @@
 
 import { getByRole, render, screen, waitForElementToBeRemoved } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { act } from "react-dom/test-utils";
 import { fetchRandomQuote as mockFetchRandomQuote } from "./api";
 
 import QuoteGenerator from "./QuoteGenerator";
@@ -110,6 +111,8 @@ test("allows to select category and displays quote", async () => {
  * - Use `.mockRejectedValueOnce` to mock API call failure (rejected promise)
  */
 
+window.alert = jest.fn();
+
 test("displays an error message when API call fails", async () => {
   mockFetchRandomQuote.mockRejectedValueOnce();
 
@@ -155,3 +158,4 @@ function mockQuote(overrides) {
     ...overrides
   }
 }
+

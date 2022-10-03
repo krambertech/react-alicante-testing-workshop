@@ -12,19 +12,25 @@
 // }
 
 export async function fetchRandomQuote({ category }) {
-  const response = await (fetch(
-    `https://api.quotable.io/random?tags=${category || ""}`
-  ).catch(handleError));
+  // const response = await (fetch(
+  //   `https://api.quotable2.io/random?tags=${category || ""}`
+  // ).catch(handleError));
 
-  if (response.ok) {
-    return await response.json();
-  }
+  // if (response.ok) {
+  //   return await response.json();
+  // }
+  const response = await fetch(
+    `https://api.quotable2.io/random?tags=${category || ""}`
+  )
+
+
+  return await response.json();
 }
 
 
-var handleError = function (err) {
-  console.warn(err);
-  return new Response(JSON.stringify({
-    error: 'Error'
-  }));
-};
+// var handleError = function (err) {
+//   console.warn(err);
+//   return new Response(JSON.stringify({
+//     error: 'Error'
+//   }));
+// };

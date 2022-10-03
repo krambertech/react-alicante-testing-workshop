@@ -6,7 +6,8 @@
  * it is testing multiple units together.
  */
 
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor, waitForElementToBeRemoved, within } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import mockApi from "../api";
 import { mockMusing } from "../test/mocks";
@@ -28,6 +29,7 @@ test("renders list of musings from api", async () => {
   expect(status).toBeInTheDocument();
 
   const musings = screen.getAllByTestId("musing");
+  screen.getallbyid
   expect(musings).toHaveLength(2);
 
   expect(musings[0]).toHaveTextContent("Pam pam");
@@ -69,7 +71,12 @@ test("displays error message if api call failed", async () => {
  */
 test("allows to create a new musing", async () => {
   mockApi.getMyMusings.mockResolvedValueOnce({
-    data: [],
+    data: [mockMusing({ text: "Mock mock" })],
+    error: null,
+  });
+
+  mockApi.createMusing.mockResolvedValueOnce({
+    data: [mockMusing({ text: "Smock smock" })],
     error: null,
   });
 
@@ -77,12 +84,42 @@ test("allows to create a new musing", async () => {
 
   // Test scenario:
   // 1. First, wait until the existing list of items is displayed.
+  const status = await screen.findByText(/you have 1 musing/i);
+  expect(status).toBeInTheDocument();
+
   // 2. Then, click on the "New musing" button.
+  const newMusingButton = screen.getByRole('button', { name: /new musing/i });
+  userEvent.click(newMusingButton);
+
   // 3. Then, wait until the dialog (you can use role `dialog`) is displayed.
+  const dialog = await screen.getByRole('dialog');
+  expect(dialog).toBeInTheDocument();
+
   // 4. Then, fill in the input (label: Write something) and click on the "Save" button.
+  const saveButton = screen.getByRole('button', { name: /save/i })
+  const input = screen.getByLabelText(/write something/i);
+
+  userEvent.type(input, "Smock smock");
+  userEvent.click(saveButton);
+  expect(saveButton).toHaveTextContent(/saving/i);
+
   // 5. Then, wait until the dialog is closed (Tip: you  can use `waitForElementToBeRemoved`).
+  await waitForElementToBeRemoved(() => screen.getByRole('dialog'));
+
   // 6. Then, wait until the new item is displayed in the list.
+  const statusNew = await screen.findByText(/you have 2 musings/i);
+  expect(statusNew).toBeInTheDocument();
+
+  const musings = await screen.getAllByTestId('musing');
+  expect(musings.length).toBe(2);
+  expect(musings[0]).toHaveTextContent(/smock smock/i);
+  expect(musings[1]).toHaveTextContent(/mock mock/i);
+
+
   // 7. Then, check that API has been called correctly
+  expect(mockApi.getMyMusings).toBeCalledTimes(1);
+  expect(mockApi.createMusing).toBeCalledTimes(1);
+  expect(mockApi.createMusing).toBeCalledWith({ text: "Smock smock" });
 });
 
 /**
@@ -98,7 +135,32 @@ test("allows to create a new musing", async () => {
  * - To find specific delete button, you can use `within` helper to narrow selection down
  *   https://testing-library.com/docs/dom-testing-library/api-within/
  */
-// test.todo("allows to delete musing");
+test("allows to delete musing", async () => {
+  mockApi.getMyMusings.mockResolvedValueOnce({
+    data: [
+      mockMusing({ text: "Mock mock" }),
+      mockMusing({ text: "Smock smock" })],
+    error: null,
+  });
+
+  mockApi.deleteMusing.mockResolvedValueOnce({
+    data: null,
+    error: null,
+  });
+
+  render(<MyMusings />);
+
+  const musings = await screen.findAllByTestId('musing');
+  expect(musings.length).toBe(2);
+  expect(musings[0]).toHaveTextContent(/mock mock/i);
+
+  const deleteButton = within(musings[0]).queryByRole('button', { name: /delete/i });
+  userEvent.click(deleteButton);
+
+  await waitForElementToBeRemoved(musings[0]);
+  const newMusings = screen.getAllByTestId('musing');
+  expect(newMusings.length).toBe(1);
+})
 
 /**
  * 🚀 BONUS (TDD)
@@ -123,4 +185,20 @@ test("allows to create a new musing", async () => {
  * 💡 Tips:
  * - You can use `userEvent.keyboard` to simulate keyboard events
  */
-// test.todo("opens new musing form by pressing n key");
+test("opens new musing form by pressing n key", async () => {
+  mockApi.getMyMusings.mockResolvedValueOnce({
+    data: [],
+    error: null,
+  });
+  render(<MyMusings />);
+
+  //Wait to render status
+  const status = await screen.findByText(/you do not have any musings yet.../i);
+  expect(status).toBeInTheDocument();
+
+  userEvent.keyboard('n');
+
+  //Find dialog element
+  const dialog = await screen.findByRole('dialog');
+  expect(dialog).toBeInTheDocument();
+})

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-export default function Counter({ initialValue, min, max }) {
-  const [count, setCount] = useState(initialValue ? initialValue : 0);
+export default function Counter({ initialValue = 0, min, max }) {
+  const [count, setCount] = useState(initialValue);
 
   return (
     <div>

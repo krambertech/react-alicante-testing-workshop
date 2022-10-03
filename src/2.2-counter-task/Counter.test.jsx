@@ -83,17 +83,10 @@ test("does not allow to go below min and above max", () => {
     //Check if disabled.
     expect(dec).toBeDisabled();
 
-    //Try to decrement.
-    runTimes(5, () => userEvent.click(dec))
-
-    //Should still be 0.
-    expect(screen.getByText(/count: 0/i)).toBeInTheDocument();
-
     //Click 10 times.
     runTimes(5, () => userEvent.click(inc))
     //Should be 5.
-    expect(screen.getByText(/count: 5/i)).toBeInTheDocument();
-
+    expect(inc).toBeDisabled();
 });
 
 /**

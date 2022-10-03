@@ -6,10 +6,11 @@
  * design system
  */
 
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitForElementToBeRemoved } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Modal from "./Modal";
+
 
 test("renders children and title when open", () => {
   render(
@@ -35,9 +36,15 @@ test("renders children and title when open", () => {
  */
 test("displays modal when it is open and does not displays when it is closed", () => {
   //  1. Render Modal with `open` prop
+  render(<Modal open />)
+
   //  2. Check that Modal is visible
+  expect(screen.getByRole('dialog')).toBeInTheDocument();
+
   //  3. Rerender Modal without `open` prop
+  const { rerender } = render(<Modal />)
   //  4. Check that Modal is not visible
+  expect(screen.queryByRole('modal')).not.toBeInTheDocument();
 });
 
 /**
@@ -49,9 +56,34 @@ test("displays modal when it is open and does not displays when it is closed", (
  * - In order to test this, we need to mock `onClose` prop.
  *   https://jestjs.io/docs/mock-function-api
  */
-test.todo(
+
+const onClose = jest.fn(() => setIsOpen(false))
+
+test(
   "displays close button if onClose provided and fires onClose when close button is clicked"
-);
+  , () => {
+
+    render(<Modal
+      open
+      title="New musing"
+      onClose={onClose}
+    />);
+
+    //Check if dialog is open
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+
+    //Check if it rendered correctly
+    expect(screen.getByRole('heading', { name: /new musing/i })).toBeInTheDocument();
+
+    //Does it have close button
+    const closeButton = screen.getByRole('button', { name: /close/i });
+    expect(closeButton).toBeInTheDocument();
+
+    userEvent.click(closeButton);
+
+    //check if onClose prop is called
+    expect(onClose).toBeCalledTimes(1);
+  })
 
 /**
  * 🚀 BONUS
@@ -61,4 +93,20 @@ test.todo(
  * - You can use `userEvent.keyboard` to simulate keyboard events
  *   https://testing-library.com/docs/user-event/keyboard/
  */
-// test.todo("fires onClose when Escape is pressed");
+test("fires onClose when Escape is pressed", () => {
+  render(<Modal
+    open
+    title="braap braap"
+    onClose={onClose}
+  />);
+
+  //Check if dialog is open
+  expect(screen.getByRole('dialog')).toBeInTheDocument();
+
+  //Check if it rendered correctly
+  expect(screen.getByRole('heading', { name: /braap braap/i })).toBeInTheDocument();
+
+  userEvent.keyboard('{Escape}');
+  //check if onClose prop is called
+  expect(onClose).toBeCalledTimes(1);
+});
